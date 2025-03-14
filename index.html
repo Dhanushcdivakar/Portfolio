@@ -5,20 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dhanush</title>
     <style>
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
+
       .navbar-toggler {
         border-color: black;
       }
+
       .navbar-toggler-icon {
         background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="gray" viewBox="0 0 30 30"%3E%3Cpath stroke="gray" stroke-width="3" d="M5 7h20M5 15h20M5 23h20"/%3E%3C/svg%3E');
         background-size: 30px 30px;
       }
 
       .card {
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: #fff;
       }
 
       .card:hover {
         transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
 
       .dark-mode {
@@ -52,6 +77,28 @@
         color: white !important;
       }
 
+      .dark-mode .unique-section,
+      .dark-mode .collaborate-section,
+      .dark-mode .about-section,
+      .dark-mode #experience-section {
+        background-color: #2d2d2d;
+        color: white;
+      }
+
+      .dark-mode .unique-section h3,
+      .dark-mode .collaborate-section h3,
+      .dark-mode .about-section h3,
+      .dark-mode #experience-section h1 {
+        color: white;
+      }
+
+      .dark-mode .unique-section p,
+      .dark-mode .collaborate-section p,
+      .dark-mode .about-section p,
+      .dark-mode #experience-section .card {
+        color: #ddd;
+      }
+
       .dark-mode-toggle {
         background-color: #121212;
         color: white;
@@ -59,7 +106,7 @@
         padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
-        margin-left: auto; /* Align to the right */
+        margin-left: auto;
       }
 
       .dark-mode-toggle:hover {
@@ -71,6 +118,163 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
+        background-color: #28a745;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      #hero-section {
+  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  color: white;
+  padding: 150px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+      #hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      #hero-section p {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+        animation: fadeIn 2.5s ease-in-out;
+      }
+
+      #hero-section .btn {
+        background-color: #ff6f61;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+        animation: fadeIn 3s ease-in-out;
+      }
+
+      #hero-section .btn:hover {
+        background-color: #ff4a3d;
+      }
+
+      /* Photo Animation */
+      .photo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: slideInFromLeft 1.5s ease-in-out;
+      }
+
+      .photo-container img {
+        max-width: 100%;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Back to Top Button */
+      #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #6a11cb;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        transition: background-color 0.3s ease;
+      }
+
+      #back-to-top:hover {
+        background-color: #2575fc;
+      }
+
+      /* Section Styling */
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #333;
+      }
+
+      .dark-mode .section-title {
+        color: white;
+      }
+
+      .section-subtitle {
+        font-size: 1.25rem;
+        color: #6c757d;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .dark-mode .section-subtitle {
+        color: #ddd;
+      }
+
+      .unique-section,
+      .collaborate-section,
+      .about-section {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .unique-section h3,
+      .collaborate-section h3,
+      .about-section h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .unique-section p,
+      .collaborate-section p,
+      .about-section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
     </style>
 
@@ -85,15 +289,20 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Header -->
     <header class="bg-success" style="position: fixed; width: 100%; z-index: 1">
       <div class="row w-100">
         <div class="col-md-6 col-9 p-3 pl-5 pt-10">
           <h2>Dhanush</h2>
         </div>
         <div class="col-md-6 col-3 my-auto">
-          <nav class="navbar navbar-expand-lg">
+          <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
               <button
                 class="navbar-toggler ms-auto"
@@ -112,10 +321,11 @@
                     <a
                       class="nav-link active text-dark"
                       aria-current="page"
-                      href="#home-section"
+                      href="#hero-section"
                       >Home</a
                     >
                   </li>
+                
                   <li class="nav-item">
                     <a class="nav-link text-dark" href="#service-section"
                       >Services</a
@@ -127,8 +337,13 @@
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-dark" href="#information-section"
-                      >Contact me</a
+                    <a class="nav-link text-dark" href="#skills-section"
+                      >Skills</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-dark" href="#contact-section"
+                      >Contact</a
                     >
                   </li>
                 </ul>
@@ -142,28 +357,121 @@
       </div>
     </header>
 
-    <section id="home-section" style="padding: 5em">
+    <!-- Hero Section -->
+    <section id="hero-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6">
+          <div class="col-md-6 photo-container">
             <img
               src="Pictures/Dhanush.jpeg"
-              alt="image"
-              class="img-fluid rounded-circle"
+              alt="Dhanush"
+              class="img-fluid"
             />
           </div>
           <div class="col-md-6">
-            <h4>
-              Student and freelancer<br />
-              Bangalore, Karnataka, India
-            </h4>
-            <p>"You are the average of 5 people you hang around"</p>
-            <footer>~Dhanush</footer>
+           
+            <h1>Welcome to Dhanush's Portfolio</h1>
+            <p>Innovative Thinker | Lifelong Learner | Problem Solver</p>
+            <a href="#contact-section" class="btn">Get in Touch</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- How I Am Unique Section -->
+    <section id="unique-section" class="bg-light">
+      <div class="container">
+        <h2 class="section-title">How I Am Unique</h2>
+        <p class="section-subtitle">
+          Discover what sets me apart from the rest.
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="unique-section">
+              <h3>Innovative Thinker</h3>
+              <p>
+                I bring fresh perspectives to every project, combining creativity
+                with technical expertise to solve complex problems.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="unique-section">
+              <h3>Lifelong Learner</h3>
+              <p>
+                I am constantly updating my skills and knowledge to stay ahead
+                in the ever-evolving tech landscape.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Collaborate With Me Section -->
+    <section id="collaborate-section">
+      <div class="container">
+        <h2 class="section-title">Why Collaborate With Me</h2>
+        <p class="section-subtitle">
+          Here’s why I’m the perfect partner for your next project.
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="collaborate-section">
+              <h3>Proven Track Record</h3>
+              <p>
+                With a history of successful projects and satisfied clients, I
+                deliver results that exceed expectations.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="collaborate-section">
+              <h3>Collaborative Approach</h3>
+              <p>
+                I believe in working closely with clients to ensure their vision
+                is realized in the best possible way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about-section" class="bg-light">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          Get to know more about my journey and passions.
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="about-section">
+              <h3>My Journey</h3>
+              <p>
+                I’m a third-year computer science student with a passion for
+                software development. I’ve worked with technologies like Java,
+                Python, MongoDB, and Spring Boot, and I love solving problems
+                through code.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="about-section">
+              <h3>My Passions</h3>
+              <p>
+                Beyond coding, I enjoy participating in hackathons, learning new
+                technologies, and contributing to open-source projects. I’m also
+                passionate about mentoring others and sharing knowledge.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
     <section class="bg-light p-5" id="service-section">
       <div class="container">
         <h1 class="text-center">Services</h1>
@@ -243,7 +551,8 @@
       </div>
     </section>
 
-    <section class="bg-white" id="experience-section">
+    <!-- Experience Section -->
+    <section class="bg-light p-5" id="skills-section">
       <div class="container">
         <h1 class="text-center">Experience</h1>
         <div class="row">
@@ -314,20 +623,7 @@
       </div>
     </section>
 
-    <section class="bg-light p-5" id="about-section">
-      <div class="container">
-        <h1 class="text-center">About Me</h1>
-        <p class="text-center">
-          Hello! I'm Dhanush, a passionate third-year computer science student
-          with a keen interest in software development. I have experience with
-          technologies like Java, Python, MongoDB, and Spring Boot. In addition
-          to programming, I'm passionate about problem-solving and enjoy
-          participating in hackathons.
-        </p>
-      </div>
-    </section>
-
-    <!-- New My Skills Section -->
+    <!-- Skills Section -->
     <section class="bg-light p-5" id="skills-section">
       <div class="container">
         <h1 class="text-center">My Skills</h1>
@@ -397,42 +693,42 @@
       </div>
     </section>
 
-    <section id="information-section">
+    <!-- Contact Section -->
+    <section id="contact-section">
       <div class="container">
         <h1 class="text-center">Contact Me</h1>
         <div class="row">
           <div class="col-md-4">
-            <div class="col-md-4">
-              <h5>Email</h5>
-              <p>
-                <a href="mailto:dhanushcdivaker8984@gmail.com"
-                  >dhanushcdivaker8984@gmail.com</a
-                >
-              </p>
-            </div>
-            <div class="col-md-4">
-              <h5>LinkedIn</h5>
-              <p>
-                <a
-                  href="https://www.linkedin.com/in/dhanush-c-d-9403772a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  target="_blank"
-                  >linkedin.com/in/dhanush</a
-                >
-              </p>
-            </div>
-            <div class="col-md-4">
-              <h5>GitHub</h5>
-              <p>
-                <a href="https://github.com/Dhanushcdivakar" target="_blank"
-                  >github.com/dhanush</a
-                >
-              </p>
-            </div>
+            <h5>Email</h5>
+            <p>
+              <a href="mailto:dhanushcdivaker8984@gmail.com"
+                >dhanushcdivaker8984@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5>LinkedIn</h5>
+            <p>
+              <a
+                href="https://www.linkedin.com/in/dhanush-c-d-9403772a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                >linkedin.com/in/dhanush</a
+              >
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5>GitHub</h5>
+            <p>
+              <a href="https://github.com/Dhanushcdivakar" target="_blank"
+                >github.com/dhanush</a
+              >
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-success">
       <div class="container">
         <div class="row">
@@ -443,7 +739,10 @@
       </div>
     </footer>
 
+    <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
     <script>
+      // Dark Mode Toggle
       function toggleDarkMode() {
         const body = document.body;
         body.classList.toggle("dark-mode");
@@ -454,21 +753,26 @@
           darkModeToggle.textContent = "Dark Mode";
         }
       }
-    </script>
 
+      // Back to Top Button
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.onscroll = () => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      };
+
+      const scrollToTop = () => {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+      };
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
   </body>
