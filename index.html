@@ -296,7 +296,7 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="bg-success" style="position: fixed; width: 100%; z-index: 1">
+    <header class="bg-success" style="position: fixed; width: 100%; z-index: 1" >
       <div class="row w-100">
         <div class="col-md-6 col-9 p-3 pl-5 pt-10">
           <h2>Dhanush</h2>
@@ -342,7 +342,7 @@
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-dark" href="#contact-section"
+                    <a class="nav-link text-dark" href="#contact-section" 
                       >Contact</a
                     >
                   </li>
@@ -769,6 +769,22 @@
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
       };
+      // Smooth scrolling for all links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 70, // Adjust for fixed header
+                behavior: 'smooth'
+            });
+        }
+    });
+});
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
